@@ -139,8 +139,15 @@
                 const discount = dynamicProductDetails.dataset.discount;
                 if(discountType == "percentage") {
                     const current_price = dynamicProductDetails.querySelector("product-price [ref='priceContainer'] .price");
+                    const comparePrice = dynamicProductDetails.querySelector("product-price [ref='priceContainer'] .compare-at-price");
                     if(current_price) {
                         current_price.textContent = `$${(parseInt(current_price.dataset.price) / 100) - (parseInt(current_price.dataset.price) / 100) * (parseInt(discount) / 100)}`;
+                        if(!comparePrice) {
+                            const new_comparePrice = document.createElement("span");
+                            new_comparePrice.classList.add("compare-at-price");
+                            new_comparePrice.textContent = `$${parseInt(current_price.dataset.price) / 100)}`;
+                            dynamicProductDetails.querySelector("product-price [ref='priceContainer']").appendChild(new_comparePrice)
+                        }
                     }
                 }
             }
