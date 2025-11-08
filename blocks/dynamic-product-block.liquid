@@ -177,6 +177,23 @@
         },
         {
             "visible_if": "{{ block.settings.offer == 'discount' and block.settings.apply_offer == true }}",
+            "type": "select",
+            "id": "discount_type",
+            "label": "Discount type",
+            "options": [
+                {
+                    "label": "Percentage",
+                    "value": "percentage"
+                },
+                {
+                    "label": "Fixed",
+                    "value": "fixed"
+                }
+            ],
+            "default": "percentage"
+        },
+        {
+            "visible_if": "{{ block.settings.offer == 'discount' and block.settings.apply_offer == true }}",
             "type": "number",
             "id": "discount",
             "label": "Discount"
