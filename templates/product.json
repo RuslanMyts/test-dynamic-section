@@ -17,6 +17,11 @@
           "name": "Dynamic Product Block",
           "settings": {
             "product": "womens-long-cardigan",
+            "start_date": "",
+            "end_date": "",
+            "apply_offer": false,
+            "offer": "discount",
+            "gift_product": "gift",
             "media_position": "left"
           },
           "blocks": {
