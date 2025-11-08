@@ -28,7 +28,7 @@
     {% comment %} {% content_for 'blocks' %} {% endcomment %}
 
       {% for block_item in block.blocks %}
-        {% content_for 'block', type: "{{ block_item.type }}", id: '{{ block_item.id }}' %}
+        {{ block_item.type }}
       {% endfor %}
   {% endcapture %}
 
