@@ -6,7 +6,7 @@
     endif
 %}
 
-{% if section.settings.product != blank %}  
+{% if block.settings.product != blank %}  
     {% assign render_order_array = render_order | split: ',' %}
     {% capture media %}
         <div
@@ -15,7 +15,7 @@
         {%- content_for 'block',
             type: 'dynamic-product-block-media',
             id: 'dynamic-product-block-madia',
-            product: section.settings.product
+            product: block.settings.product
         -%}
         </div>
     {% endcapture %}
@@ -25,7 +25,7 @@
             {% content_for 'block',
                 type: '_product-details',
                 id: 'product-details',
-                closest.product: section.settings.product
+                closest.product: block.settings.product
             %}
         </div>
     {% endcapture %}
