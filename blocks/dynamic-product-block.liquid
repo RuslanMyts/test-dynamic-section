@@ -132,8 +132,8 @@
     document.addEventListener("DOMContentLoaded", ()=>{
         const dynamicProductDetails = document.querySelector("#dynamic-product-details-{{section.id }}");
         const applyOffer = dynamicProductDetails.dataset.applyoffer;
-        console.log("applyOffer",applyOffer)
         if(applyOffer == "true") {
+            console.log("applyOffer",applyOffer)
             const offerType = dynamicProductDetails.dataset.offer;
             if(offerType == "discount") {
                 const discountType = dynamicProductDetails.dataset.discountType;
