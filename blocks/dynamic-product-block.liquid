@@ -34,7 +34,13 @@
         {% endcapture %}
 
         {% capture details %}
-            <div class="dynamic-product-details">
+            <div class="dynamic-product-details"
+                data-applyoffer="{{ block.settings.apply_offer }}"
+                data-offer="{{ block.settings.offer }}"
+                {% if block.settings.offer == "discount" %}
+                    data-discount="{{ block.settings.discount }}"
+                {% endif %}
+            >
                 {% content_for 'block',
                     type: '_product-details',
                     id: 'product-details',
