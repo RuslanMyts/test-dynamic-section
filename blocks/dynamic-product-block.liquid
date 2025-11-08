@@ -133,9 +133,9 @@
         const dynamicProductDetails = document.querySelector("#dynamic-product-details-{{section.id }}");
         const applyOffer = dynamicProductDetails.dataset.applyoffer;
         if(applyOffer == "true") {
-            console.log("applyOffer",applyOffer)
             const offerType = dynamicProductDetails.dataset.offer;
             if(offerType == "discount") {
+                console.log("applyOffer",applyOffer)
                 const discountType = dynamicProductDetails.dataset.discountType;
                 const discount = dynamicProductDetails.dataset.discount;
                 if(discountType == "percentage") {
