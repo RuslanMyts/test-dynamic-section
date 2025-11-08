@@ -137,7 +137,7 @@
             "default": "discount"
         },
         {
-            "visible_if": "{{ block.settings.offer == 'discount' }}",
+            "visible_if": "{{ block.settings.offer == 'discount' and block.settings.apply_offer == true }}",
             "type": "number",
             "id": "discount",
             "label": "Discount"
