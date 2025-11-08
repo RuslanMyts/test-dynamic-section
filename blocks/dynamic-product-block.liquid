@@ -130,8 +130,17 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", ()=>{
-        const applyOffer = document.querySelector("#dynamic-product-details-{{section.id }}").dataset.applyoffer;
+        const dynamicProductDetails = document.querySelector("#dynamic-product-details-{{section.id }}");
+        const applyOffer = dynamicProductDetails.dataset.applyoffer;
         console.log("applyOffer",applyOffer)
+        if(applyOffer == true) {
+            const offerType = dynamicProductDetails.dataset.offer;
+            if(offerType == "discount") {
+                const discountType = dynamicProductDetails.dataset.discountType;
+                const discount = dynamicProductDetails.dataset.discount;
+                console.log(discountType, discount)
+            }
+        }
     })
 </script>
 
