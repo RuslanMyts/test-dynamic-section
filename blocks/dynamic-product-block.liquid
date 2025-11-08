@@ -35,6 +35,7 @@
 
         {% capture details %}
             <div class="dynamic-product-details"
+                id="dynamic-product-details-{{section.id }}"
                 data-applyoffer="{{ block.settings.apply_offer }}"
                 data-offer="{{ block.settings.offer }}"
                 {% if block.settings.offer == "discount" %}
@@ -129,7 +130,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", ()=>{
-        const applyOffer = document.querySelector("#shopify-section-{{ section.id }} .dynamic-product-details").dataset.applyOffer;
+        const applyOffer = document.querySelector("#dynamic-product-details-{{section.id }}").dataset.applyOffer;
         console.log("applyOffer",applyOffer)
     })
 </script>
