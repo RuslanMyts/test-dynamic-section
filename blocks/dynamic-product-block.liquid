@@ -1,5 +1,7 @@
 {% assign current_time =  'now' | date: "%Y-%m-%d %H:%M:%S"  %}
 
+{{ current_time | json }}
+
 {% if current_time > block.settings.start_date and current_time < block.settings.end_date  %}
 
     {% liquid
