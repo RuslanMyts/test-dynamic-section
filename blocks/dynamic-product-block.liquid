@@ -10,8 +10,7 @@
     {% assign render_order_array = render_order | split: ',' %}
     {% capture media %}
         <div
-            class="product-information__media"
-            data-testid="product-information-media"
+            class="dynamic-prouct-media"
         >
         {%- content_for 'block',
             type: 'dynamic-product-block-media',
@@ -22,11 +21,13 @@
     {% endcapture %}
 
     {% capture details %}
-        {% content_for 'block',
-            type: '_product-details',
-            id: 'product-details',
-            closest.product: section.settings.product
-        %}
+        <div class="dynamic-product-details">
+            {% content_for 'block',
+                type: '_product-details',
+                id: 'product-details',
+                closest.product: section.settings.product
+            %}
+        </div>
     {% endcapture %}
 
     <div class="dynamic-product-block">
