@@ -1,13 +1,76 @@
+{% liquid
+    if section.settings.desktop_media_position == 'left'
+        assign render_order = 'media,product-details'
+    else
+        assign render_order = 'product-details,media'
+    endif
+%}
+
+{% if section.settings.product %}  
+    {% assign render_order_array = render_order | split: ',' %}
+    {% capture media %}
+        <div
+            class="product-information__media"
+            data-testid="product-information-media"
+        >
+        {%- content_for 'block',
+            type: 'dynamic-product-block-media',
+            id: 'dynamic-product-block-madia',
+            product: section.settings.product
+        -%}
+        </div>
+    {% endcapture %}
+
+    {% capture details %}
+        {% content_for 'block',
+            type: '_product-details',
+            id: 'product-details',
+            closest.product: section.settings.product
+        %}
+    {% endcapture %}
+
+    <div class="dynamic-product-block">
+        {% for block in render_order_array %}
+            {% if block == 'media' %}
+                {{ media }}
+            {% elsif block == 'product-details' %}
+                {{ details }}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
 {% schema %}
 {
     "name": "Dynamic Product Block",
     "settings": [
-        
-        ],
-        "presets": [
-            {
-                "name": "Dynamic Product Block"
-            }
-        ]
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+        },
+        {
+            "type": "select",
+            "id": "media_position",
+            "label": "Media Position",
+            "options": [
+                {
+                "value": "left",
+                "label": "Left"
+                },
+                {
+                "value": "right",
+                "label": "Right"
+                }
+            ],
+            "default": "left"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Dynamic Product Block"
+        }
+    ]
 }
 {% endschema %}
