@@ -1,7 +1,5 @@
 {% assign current_time =  'now' | date: "%Y-%m-%d %H:%M:%S"  %}
 
-{{ current_time | json }}
-
 {% liquid
     if block.settings.media_position == 'left'
         assign render_order = 'media,product-details'
