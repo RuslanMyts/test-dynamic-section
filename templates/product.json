@@ -16,7 +16,7 @@
           "type": "dynamic-product-block",
           "name": "Dynamic Product Block",
           "settings": {
-            "product": "",
+            "product": "womens-long-cardigan",
             "media_position": "left"
           },
           "blocks": {
