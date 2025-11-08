@@ -21,6 +21,7 @@
             "end_date": "",
             "apply_offer": true,
             "offer": "discount",
+            "discount_type": "percentage",
             "discount": 25,
             "gift_product": "gift",
             "media_position": "left"
@@ -248,8 +249,9 @@
             "product": "womens-long-cardigan",
             "start_date": "2025-11-08",
             "end_date": "",
-            "apply_offer": true,
+            "apply_offer": false,
             "offer": "discount",
+            "discount_type": "percentage",
             "discount": 0,
             "gift_product": "gift",
             "media_position": "left"
