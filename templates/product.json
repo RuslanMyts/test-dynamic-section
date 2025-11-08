@@ -9,6 +9,11 @@
  */
 {
   "sections": {
+    "dynamic_section_Ly3P89": {
+      "type": "dynamic-section",
+      "name": "Dynamic Section",
+      "settings": {}
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -270,6 +275,7 @@
     }
   },
   "order": [
+    "dynamic_section_Ly3P89",
     "main"
   ]
 }
