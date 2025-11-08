@@ -25,7 +25,11 @@
       </a>
     </div>
   
-    {% content_for 'blocks' %}
+    {% comment %} {% content_for 'blocks' %} {% endcomment %}
+
+      {% for block in section.blocks %}
+        {% content_for 'block', type: "{{ block.type }}", id: 's' %}
+      {% endfor %}
   {% endcapture %}
 
   {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes %}
