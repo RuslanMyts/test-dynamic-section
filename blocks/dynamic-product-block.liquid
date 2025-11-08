@@ -9,11 +9,11 @@
 
     if current_time > block.settings.start_date
         assign status = true
-    endif
-    if block.settings.end_date == blank or current_time < block.settings.end_date
-        assign status = true
-    else
-        assign status = false
+        if block.settings.end_date == blank or current_time < block.settings.end_date
+            assign status = true
+        else
+            assign status = false
+        endif
     endif
 %}
 
