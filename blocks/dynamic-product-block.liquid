@@ -2,15 +2,24 @@
 
 {{ current_time | json }}
 
-{% if current_time > block.settings.start_date  %}
+{% liquid
+    if block.settings.media_position == 'left'
+        assign render_order = 'media,product-details'
+    else
+        assign render_order = 'product-details,media'
+    endif
 
-    {% liquid
-        if block.settings.media_position == 'left'
-            assign render_order = 'media,product-details'
-        else
-            assign render_order = 'product-details,media'
-        endif
-    %}
+    if current_time > block.settings.start_date
+        assign status = true
+    endif
+    if block.settings.end_date == blank or current_time < block.settings.end_date
+        assign status = true
+    else
+        assign status = false
+    endif
+%}
+
+{% if status == true %}
 
     {% if block.settings.product != blank %}  
         {% assign render_order_array = render_order | split: ',' %}
