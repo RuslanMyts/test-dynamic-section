@@ -45,6 +45,21 @@
             </div>
         {% endcapture %}
 
+        {% capture offer_badge %}
+            <div class="offer-badge">
+                {% if block.settings.apply_offer == true %}
+                    {% if block.settings.offer == "discount" %}
+
+                    {% elsif block.settings.offer == "free_shipping" %}
+
+                    {% elsif block.settings.offer == "free_gift" %}
+                      
+                    {% endif %}
+                  
+                {% endif %}
+            </div>
+        {% endcapture %}
+
         <div class="dynamic-product-block">
             {% for order in render_order_array %}
                 {% if order == 'media' %}
