@@ -145,7 +145,7 @@
                         if(!comparePrice) {
                             const new_comparePrice = document.createElement("span");
                             new_comparePrice.classList.add("compare-at-price");
-                            new_comparePrice.textContent = `$${parseInt(current_price.dataset.price) / 100)}`;
+                            new_comparePrice.textContent = `$${parseInt(current_price.dataset.price) / 100}`;
                             dynamicProductDetails.querySelector("product-price [ref='priceContainer']").appendChild(new_comparePrice)
                         }
                     }
