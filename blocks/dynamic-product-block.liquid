@@ -1,92 +1,98 @@
-{% liquid
-    if block.settings.media_position == 'left'
-        assign render_order = 'media,product-details'
-    else
-        assign render_order = 'product-details,media'
-    endif
-%}
+{% assign current_time =  'now' | date: "%Y-%m-%d %H:%M:%S"  %}
 
-{% if block.settings.product != blank %}  
-    {% assign render_order_array = render_order | split: ',' %}
-    {% capture media %}
-        <div
-            class="dynamic-prouct-media"
-        >
-        {%- content_for 'block',
-            type: 'dynamic-product-block-media',
-            id: 'dynamic-product-block-madia',
-            product: block.settings.product
-        -%}
+{% if current_time > block.settings.start_date and current_time < block.settings.end_date  %}
+
+    {% liquid
+        if block.settings.media_position == 'left'
+            assign render_order = 'media,product-details'
+        else
+            assign render_order = 'product-details,media'
+        endif
+    %}
+
+    {% if block.settings.product != blank %}  
+        {% assign render_order_array = render_order | split: ',' %}
+        {% capture media %}
+            <div
+                class="dynamic-prouct-media"
+            >
+            {%- content_for 'block',
+                type: 'dynamic-product-block-media',
+                id: 'dynamic-product-block-madia',
+                product: block.settings.product
+            -%}
+            </div>
+        {% endcapture %}
+
+        {% capture details %}
+            <div class="dynamic-product-details">
+                {% content_for 'block',
+                    type: '_product-details',
+                    id: 'product-details',
+                    closest.product: block.settings.product
+                %}
+            </div>
+        {% endcapture %}
+
+        <div class="dynamic-product-block">
+            {% for order in render_order_array %}
+                {% if order == 'media' %}
+                    {{ media }}
+                {% elsif order == 'product-details' %}
+                    {{ details }}
+                {% endif %}
+            {% endfor %}
         </div>
-    {% endcapture %}
 
-    {% capture details %}
-        <div class="dynamic-product-details">
-            {% content_for 'block',
-                type: '_product-details',
-                id: 'product-details',
-                closest.product: block.settings.product
-            %}
-        </div>
-    {% endcapture %}
-
-    <div class="dynamic-product-block">
-        {% for order in render_order_array %}
-            {% if order == 'media' %}
-                {{ media }}
-            {% elsif order == 'product-details' %}
-                {{ details }}
-            {% endif %}
-        {% endfor %}
-    </div>
-
-    {% style %}
-      .dynamic-product-block {
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        padding: 20px;
-        max-width: 1400px;
-        margin: auto;
-      }
-
-      .dynamic-prouct-media {
-        width: 50%;
-      }
-
-      .dynamic-product-details {
-        width: 35%;
-      }
-
-      .dynamic-product-media .media-wrapper {
-        max-height: 700px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .dynamic-product-media .media-wrapper img {
-        height: 100%;
-        width: auto;
-        object-fit: contain;
-        left: auto;
-        right: auto;
-      }
-
-      @media (max-width: 900px) {
+        {% style %}
         .dynamic-product-block {
-            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
         }
 
         .dynamic-prouct-media {
-            width: 100%;
+            width: 50%;
         }
 
         .dynamic-product-details {
-            width: 100%;
+            width: 35%;
         }
-      }
-    {% endstyle %}
+
+        .dynamic-product-media .media-wrapper {
+            max-height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dynamic-product-media .media-wrapper img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            left: auto;
+            right: auto;
+        }
+
+        @media (max-width: 900px) {
+            .dynamic-product-block {
+                flex-direction: column;
+            }
+
+            .dynamic-prouct-media {
+                width: 100%;
+            }
+
+            .dynamic-product-details {
+                width: 100%;
+            }
+        }
+        {% endstyle %}
+    {% endif %}
+
 {% endif %}
 
 
