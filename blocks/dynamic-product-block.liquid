@@ -138,7 +138,13 @@
             if(offerType == "discount") {
                 const discountType = dynamicProductDetails.dataset.discountType;
                 const discount = dynamicProductDetails.dataset.discount;
-                console.log(discountType, discount)
+                if(discountType == "percentage") {
+                    const current_price = dynamicProductDetails.querySelector(".product-price [ref='priceContainer'] .price");
+                    const current_comparePrice = dynamicProductDetails.querySelector(".product-price [ref='priceContainer'] .compare-at-price");
+                    if(current_price) {
+                        current_price.textContent = `$${(parseInt(current_price.dataset.price) / 100) * (parseInt(discount) / 100)}`;
+                    }
+                }
             }
         }
     })
