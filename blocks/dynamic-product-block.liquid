@@ -38,6 +38,7 @@
                 data-applyoffer="{{ block.settings.apply_offer }}"
                 data-offer="{{ block.settings.offer }}"
                 {% if block.settings.offer == "discount" %}
+                    data-discount-type="{{ block.settings.discount_type }}"
                     data-discount="{{ block.settings.discount }}"
                 {% endif %}
             >
