@@ -1,4 +1,9 @@
-{% content_for 'blocks' %}
+{% for block in section.blocks %}
+   {% content_for 'block',
+        type: 'dynamic-product-block',
+        id: 'dynamic-product-block'
+    %}
+{% endfor %}
 
 {% schema %}
 {
