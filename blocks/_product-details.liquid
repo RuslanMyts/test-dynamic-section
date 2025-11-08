@@ -25,11 +25,8 @@
       </a>
     </div>
   
-    {% comment %} {% content_for 'blocks' %} {% endcomment %}
+    {% content_for 'blocks' %}
 
-      {% for block_item in block.blocks %}
-        {{ block_item.type }}
-      {% endfor %}
   {% endcapture %}
 
   {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes %}
