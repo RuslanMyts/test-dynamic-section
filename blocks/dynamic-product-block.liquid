@@ -45,6 +45,7 @@
         display: flex;
         justify-content: center;
         gap: 50px;
+        padding: 20px;
       }
 
       .dynamic-prouct-media {
@@ -53,6 +54,20 @@
 
       .dynamic-product-details {
         width: 35%;
+      }
+
+      @media (max-width: 900px) {
+        .dynamic-product-block {
+            flex-direction: column;
+        }
+
+        .dynamic-prouct-media {
+            width: 100%;
+        }
+
+        .dynamic-product-details {
+            width: 100%;
+        }
       }
     {% endstyle %}
 {% endif %}
