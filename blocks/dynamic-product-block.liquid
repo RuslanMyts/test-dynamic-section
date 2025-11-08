@@ -115,6 +115,27 @@
             "label": "Apply offer",
             "default": false
         },
+        {   
+            "visible_if": "{{ block.settings.apply_offer == true }}",
+            "type": "select",
+            "label": "Offer",
+            "id": "offer",
+            "options": [
+                {
+                    "label": "Discount",
+                    "value": "discount"
+                },
+                {
+                    "label": "Free Shipping",
+                    "value": "free_shipping"
+                },
+                {
+                    "label": "Free Gift",
+                    "value": "free_gift"
+                }
+            ],
+            "default": "discount"
+        },
         {
             "type": "select",
             "id": "media_position",
