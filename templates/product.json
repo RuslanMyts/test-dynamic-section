@@ -249,10 +249,10 @@
             "product": "womens-long-cardigan",
             "start_date": "2025-11-08",
             "end_date": "",
-            "apply_offer": false,
+            "apply_offer": true,
             "offer": "discount",
-            "discount_type": "percentage",
-            "discount": 0,
+            "discount_type": "fixed",
+            "discount": 50,
             "gift_product": "gift",
             "media_position": "left"
           },
