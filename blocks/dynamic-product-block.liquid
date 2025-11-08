@@ -141,11 +141,13 @@
                     const current_price = dynamicProductDetails.querySelector("product-price [ref='priceContainer'] .price");
                     const comparePrice = dynamicProductDetails.querySelector("product-price [ref='priceContainer'] .compare-at-price");
                     if(current_price) {
-                        current_price.textContent = `$${(parseInt(current_price.dataset.price) / 100) - (parseInt(current_price.dataset.price) / 100) * (parseInt(discount) / 100)}`;
+                        const new__price = (parseInt(current_price.dataset.price) / 100) - (parseInt(current_price.dataset.price) / 100) * (parseInt(discount) / 100);
+                        current_price.textContent = `$${new__price.toFixed(2)}`;
                         if(!comparePrice) {
                             const new_comparePrice = document.createElement("span");
                             new_comparePrice.classList.add("compare-at-price");
-                            new_comparePrice.textContent = `$${parseInt(current_price.dataset.price) / 100}`;
+                            const new__compare = parseInt(current_price.dataset.price) / 100
+                            new_comparePrice.textContent = `$${new__compare.toFixed(2)}`;
                             dynamicProductDetails.querySelector("product-price [ref='priceContainer']").appendChild(new_comparePrice)
                         }
                     }
