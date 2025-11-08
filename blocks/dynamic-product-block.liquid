@@ -144,6 +144,9 @@
                     if(current_price) {
                         current_price.textContent = `$${(parseInt(current_price.dataset.price) / 100) * (parseInt(discount) / 100)}`;
                     }
+                    if(current_comparePrice) {
+                        current_comparePrice.textContent = `$${(parseInt(current_comparePrice.dataset.comparePrice) / 100) * (parseInt(discount) / 100)}`;
+                    }
                 }
             }
         }
