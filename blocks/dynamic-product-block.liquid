@@ -2,7 +2,7 @@
 
 {{ current_time | json }}
 
-{% if current_time > block.settings.start_date and current_time < block.settings.end_date  %}
+{% if current_time > block.settings.start_date  %}
 
     {% liquid
         if block.settings.media_position == 'left'
