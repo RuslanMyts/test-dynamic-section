@@ -46,6 +46,8 @@
         justify-content: center;
         gap: 50px;
         padding: 20px;
+        max-width: 1600px;
+        margin: auto;
       }
 
       .dynamic-prouct-media {
@@ -54,6 +56,19 @@
 
       .dynamic-product-details {
         width: 35%;
+      }
+
+      .dynamic-product-media .media-wrapper {
+        max-height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .dynamic-product-media .media-wrapper {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
       }
 
       @media (max-width: 900px) {
