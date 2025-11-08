@@ -127,6 +127,13 @@
 
 {% endif %}
 
+<script>
+    document.addEventListener("DOMContentLoaded", ()=>{
+        const applyOffer = document.querySelector("#shopify-section-{{ section.id }} .dynamic-product-details").dataset.applyOffer;
+        console.log("applyOffer",applyOffer)
+    })
+</script>
+
 
 {% schema %}
 {
