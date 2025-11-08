@@ -38,7 +38,9 @@
                 {% content_for 'block',
                     type: '_product-details',
                     id: 'product-details',
-                    closest.product: block.settings.product
+                    closest.product: block.settings.product,
+                    apply_offer: block.settings.apply_offer,
+                    discount: block.settings.discount
                 %}
             </div>
         {% endcapture %}
