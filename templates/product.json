@@ -12,6 +12,51 @@
     "dynamic_section_Ly3P89": {
       "type": "dynamic-section",
       "blocks": {
+        "dynamic_product_block_LBJfUJ": {
+          "type": "dynamic-product-block",
+          "name": "Dynamic Product Block",
+          "settings": {
+            "product": "womens-long-cardigan",
+            "media_position": "left"
+          },
+          "blocks": {
+            "dynamic-product-block-madia": {
+              "type": "dynamic-product-block-media",
+              "static": true,
+              "settings": {},
+              "blocks": {}
+            },
+            "product-details": {
+              "type": "_product-details",
+              "static": true,
+              "settings": {
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "details_position": "flex-start",
+                "gap": 12,
+                "sticky_details_desktop": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
         "dynamic_product_block_zx7j3E": {
           "type": "dynamic-product-block",
           "name": "Dynamic Product Block",
@@ -261,6 +306,7 @@
         }
       },
       "block_order": [
+        "dynamic_product_block_LBJfUJ",
         "dynamic_product_block_zx7j3E"
       ],
       "name": "Dynamic Section",
