@@ -1,3 +1,53 @@
+<div class="dynamic-product-media">
+  {%- if product -%}
+    {%- assign media = product.media -%}
+    {%- assign main_image = media[0] -%}
+    {%- assign second_image = media[1] -%}
+
+    <div class="media-wrapper">
+      <img src="{{ main_image.preview_image.src | img_url: '600x600' }}" 
+           alt="{{ main_image.alt | escape }}" 
+           class="main-image">
+
+      {%- if second_image -%}
+      <img src="{{ second_image.preview_image.src | img_url: '600x600' }}" 
+           alt="{{ second_image.alt | escape }}" 
+           class="second-image">
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% style %}
+  .dynamic-product-media .media-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    }
+
+    .dynamic-product-media img {
+    display: block;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    }
+
+    .dynamic-product-media .second-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    .dynamic-product-media .media-wrapper:hover .main-image {
+    opacity: 0;
+    }
+
+    .dynamic-product-media .media-wrapper:hover .second-image {
+    opacity: 1;
+    }
+
+{% endstyle %}
 
 
 {% schema %}
