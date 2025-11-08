@@ -5,12 +5,12 @@
     {%- assign second_image = media[1] -%}
 
     <div class="media-wrapper">
-      <img src="{{ main_image.preview_image.src | img_url: '800x800' }}" 
+      <img src="{{ main_image.preview_image.src | img_url: '700x700' }}" 
            alt="{{ main_image.alt | escape }}" 
            class="main-image">
 
       {%- if second_image -%}
-      <img src="{{ second_image.preview_image.src | img_url: '800x800' }}" 
+      <img src="{{ second_image.preview_image.src | img_url: '700x700' }}" 
            alt="{{ second_image.alt | escape }}" 
            class="second-image">
       {%- endif -%}
