@@ -6,7 +6,7 @@
     endif
 %}
 
-{% if section.settings.product %}  
+{% if section.settings.product != blank %}  
     {% assign render_order_array = render_order | split: ',' %}
     {% capture media %}
         <div
